@@ -1,10 +1,15 @@
-import { useState } from "react";
-import "./App.css";
+import DraggableLayout from './components/DraggableLayout'
+import Graph from './components/Graph'
+import AppContextProvider from './context/AppContextProvider'
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  return <div>Write your app here.</div>;
+const App = () => {
+  return (
+    <AppContextProvider>
+      <DraggableLayout>
+        <Graph />
+      </DraggableLayout>
+    </AppContextProvider>
+  )
 }
 
-export default App;
+export default App

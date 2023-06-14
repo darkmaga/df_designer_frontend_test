@@ -1,10 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
+import { createRoot } from 'react-dom/client'
+import App from './App'
+import AppContextProvider from './context/AppContextProvider'
+import './index.css'
+import { worker } from './mocks/browser.js'
 
-if (process.env.NODE_ENV === "development") {
-  import("./mocks/browser.js").then(({ worker }) => worker.start());
-}
+// this condition doesn`t model real server, because it runs asynchronous and first response is always 404
+// if (process.env.NODE_ENV === 'development') {
+//   import('./mocks/browser.js').then(({ worker }) => worker.start())
+// }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+worker.start()
+
+const domNode = document.getElementById('root')
+const root = createRoot(domNode!)
+
+root.render(<App />)

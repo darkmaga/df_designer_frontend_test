@@ -1,13 +1,17 @@
 module.exports = {
-  setupFilesAfterEnv: ["./jest.setup.ts"],
-  testEnvironment: "jsdom",
+  setupFilesAfterEnv: ['./jest.setup.ts'],
+  testEnvironment: 'jsdom',
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    '^.+\\.tsx?$': 'ts-jest',
   },
-  extensionsToTreatAsEsm: [".ts", ".tsx"],
+  extensionsToTreatAsEsm: ['.ts', '.tsx'],
+  transformIgnorePatterns: ['/node_modules/(?!axios)'],
+  moduleNameMapper: {
+    '^axios$': require.resolve('axios'),
+  },
   globals: {
-    "ts-jest": {
+    'ts-jest': {
       useESM: true,
     },
   },
-};
+}
