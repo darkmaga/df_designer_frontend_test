@@ -1,6 +1,5 @@
 import { createRoot } from 'react-dom/client'
 import App from './App'
-import AppContextProvider from './context/AppContextProvider'
 import './index.css'
 import { worker } from './mocks/browser.js'
 
@@ -8,7 +7,6 @@ import { worker } from './mocks/browser.js'
 // if (process.env.NODE_ENV === 'development') {
 //   import('./mocks/browser.js').then(({ worker }) => worker.start())
 // }
-
 worker.start()
 
 const domNode = document.getElementById('root')
