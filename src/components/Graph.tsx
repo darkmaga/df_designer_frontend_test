@@ -109,27 +109,6 @@ const Graph = () => {
       //   }
       // }
 
-      console.log(nodesWithInfo)
-
-      nodesWithInfo.forEach((node) => {
-        if (node.columnNumber > 1) {
-          const [parent, ...otherParents] = edges.filter(
-            (edge) => edge.toId === node.id
-          )
-
-          console.log(parent)
-
-          if (otherParents.length === 0 || parent) {
-            const parentNode = nodesWithInfo.find((n) => n.id === parent.fromId)
-            node.rowNumber = parentNode?.rowNumber ?? node.rowNumber
-
-            return node
-          }
-        }
-      })
-
-      console.log(nodesWithInfo)
-
       setNodes(nodesWithInfo)
     })
   }, [selectedGraph])
